@@ -1,0 +1,20 @@
+{
+
+    "mode": "test",
+
+    "dev": {
+        "api": "http://localhost:8890/api",
+        "client_id": "frontendapp",
+        "client_secret": "12345",
+        "redirect_url": "http://localhost:4300"
+    },
+
+    "test": {
+        "api": "http://exact.com.pe:8890/api",
+        "client_id": "frontendapp",
+        "client_secret": "12345",
+        "redirect_url": "http://exact.com.pe:8402"
+    }
+
+
+}
