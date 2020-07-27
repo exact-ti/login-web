@@ -30,18 +30,26 @@ export class LoginComponent implements OnInit {
   }
 
   login(value: any) {
-    this.loginUseCase.login(value.usuario, value.password).subscribe((userDetails: UserDetails) => {
-      const queryParams = {
-        token: userDetails.getToken(),
-        refresh_token: userDetails.getRefreshToken()
-      }
-      const tree = this.router.createUrlTree([], {queryParams});
-      const params = this.serializer.serialize(tree);
-      window.location.href = AppConfig.REDIRECT_URL + params;
-
-    }, error => {
-      alert(error.error + ": " + error.error_description);
-    });
+    if(value.usuario=="" || value.password==""){
+      alert("Error" + ": " + "Ingrese todos los datos solicitados");
+    }else{
+      this.loginUseCase.login(value.usuario, value.password).subscribe((userDetails: UserDetails) => {
+        const queryParams = {
+          token: userDetails.getToken(),
+          refresh_token: userDetails.getRefreshToken()
+        }
+        const tree = this.router.createUrlTree([], {queryParams});
+        const params = this.serializer.serialize(tree);
+        window.location.href = AppConfig.REDIRECT_URL + params;
+  
+      }, error => {
+        if(error.error =="invalid_grant"){
+          alert("Error" + ": " + "Usuario y/o contraseña incorrecta");
+        }else{
+          alert(error.error + ": " + error.error_description);
+        }
+      });
+    }
   }
 
 }
