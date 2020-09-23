@@ -10,25 +10,25 @@ import { take, catchError, filter, map, retry } from 'rxjs/operators';
 @Injectable()
 export class Interceptor implements HttpInterceptor {
 
-    headers: HttpHeaders;
+    //headers: HttpHeaders;
 
     constructor(
     ) {
-        let subscription = AppConfig.onInicialization.pipe(take(1)).subscribe(() => {
-            this.headers = new HttpHeaders({
-                "Authorization": "Basic " + btoa(AppConfig.CLIENT_ID + ':' + AppConfig.CLIENT_SECRET),
-                'Content-Type': 'application/x-www-form-urlencoded',
-            });
-        });
+        // let subscription = AppConfig.onInicialization.pipe(take(1)).subscribe(() => {
+        //     this.headers = new HttpHeaders({
+        //         "Authorization": "Basic " + btoa(AppConfig.CLIENT_ID + ':' + AppConfig.CLIENT_SECRET),
+        //         'Content-Type': 'application/x-www-form-urlencoded',
+        //     });
+        // });
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
 
         let authReq = req;
 
-        authReq = req.clone({
-            headers: this.headers
-        });
+        // authReq = req.clone({
+        //     headers: this.headers
+        // });
 
         return next.handle(authReq).pipe(
             catchError((err, caught) => {

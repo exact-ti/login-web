@@ -13,17 +13,11 @@ export class LoginProvider implements ILoginProvider<Observable<UserDetails>> {
 
     login(usuario: string, password: string): Observable<UserDetails> {
 
-        const params = new HttpParams({
-            fromObject: {
-              grant_type: 'password',
-              username: usuario,
-              password: password,
-            }
-          });
-
-        return this.http.post<Response>(AppConfig.API + "/servicio-oauth/oauth/token", params).pipe(
+        return this.http.post<Response>(AppConfig.API + "/servicio-auth/auth", null, {
+            headers: {"Authorization": "Basic " + btoa(usuario + ':' + password)}
+        }).pipe(
             map((response: any) => {
-                    return new UserDetails(response.access_token, response.refresh_token);
+                    return new UserDetails(response.data.access_token, response.data.refresh_token);
                 }
             )
         );

@@ -7,6 +7,7 @@ import { Router, UrlSerializer } from '@angular/router';
 import { AppConfig } from 'src/app/app.config';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginUseCase: LoginUseCase;
 
-  constructor(private loginProvider: LoginProvider, private router: Router, private serializer: UrlSerializer) {
+  constructor(private loginProvider: LoginProvider, private router: Router, private serializer: UrlSerializer, 
+    private notifier: NotifierService) {
     this.loginUseCase = new LoginUseCase(loginProvider);
   }
 
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   login(value: any) {
     if(value.usuario=="" || value.password==""){
-      alert("Error" + ": " + "Ingrese todos los datos solicitados");
+      this.notifier.notify("warning", "Ingrese todos los datos solicitados");
     }else{
       this.loginUseCase.login(value.usuario, value.password).subscribe((userDetails: UserDetails) => {
         const queryParams = {
@@ -44,9 +46,9 @@ export class LoginComponent implements OnInit {
   
       }, error => {
         if(error.error =="invalid_grant"){
-          alert("Error" + ": " + "Usuario y/o contraseña incorrecta");
+          this.notifier.notify("warning", "Usuario y/o contraseña incorrecta");
         }else{
-          alert(error.error + ": " + error.error_description);
+          this.notifier.notify("error", error.error_description);
         }
       });
     }

@@ -3,6 +3,7 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NotifierModule } from "angular-notifier";
 
 // Rutas
 import { APP_ROUTING } from './app.routes';
@@ -37,6 +38,7 @@ export function cargarConfiguracion(httpClient: HttpClient) {
     APP_ROUTING,
     FormsModule,
     ReactiveFormsModule,
+    NotifierModule
   ],
   providers: [     
     {
