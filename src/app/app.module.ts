@@ -21,7 +21,7 @@ export function cargarConfiguracion(httpClient: HttpClient) {
       map((x: any) => {
         let modo: string = x.mode;
         let objeto: any = x[modo];
-        AppConfig.Inicializar(objeto.api, objeto.client_id, objeto.client_secret, objeto.redirect_url);
+        AppConfig.Inicializar(objeto.api, objeto.client_id, objeto.client_secret, objeto.redirect_url, objeto.ldap);
       })
   ).subscribe();
 }

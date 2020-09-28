@@ -5,13 +5,15 @@
         "api": "http://localhost:8891",
         "client_id": "frontendapp",
         "client_secret": "12345",
-        "redirect_url": "http://localhost:4200"
+        "redirect_url": "http://localhost:4200",
+        "ldap": true
     },
 
     "test": {   
         "api": "http://exact.com.pe:8891",
         "client_id": "frontendapp",
         "client_secret": "12345",
-        "redirect_url": "http://exact.com.pe:8402"
+        "redirect_url": "http://exact.com.pe:8402",
+        "ldap": false
     }
 }

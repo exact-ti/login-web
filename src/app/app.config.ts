@@ -9,14 +9,16 @@ export class AppConfig{
     public static CLIENT_ID: string;
     public static CLIENT_SECRET: string;
     public static REDIRECT_URL: string;
+    public static LDAP: string;
 
     public static readonly onInicialization: Subject<void> = new Subject<void>(); 
 
-    public static Inicializar(api: string, clientId: string, clientSecret: string, redirectUrl: string) {
+    public static Inicializar(api: string, clientId: string, clientSecret: string, redirectUrl: string, ldap: string) {
         this.API = api;
         this.CLIENT_ID = clientId;
         this.CLIENT_SECRET = clientSecret;
         this.REDIRECT_URL = redirectUrl;
+        this.LDAP = ldap;
         this.onInicialization.next();
     }
 

@@ -45,11 +45,8 @@ export class LoginComponent implements OnInit {
         window.location.href = AppConfig.REDIRECT_URL + params;
   
       }, error => {
-        if(error.error =="invalid_grant"){
-          this.notifier.notify("warning", "Usuario y/o contraseña incorrecta");
-        }else{
-          this.notifier.notify("error", error.error_description);
-        }
+        console.log(error);
+        this.notifier.notify("error", error.message);
       });
     }
   }
