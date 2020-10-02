@@ -17,6 +17,10 @@
       <input type="text" id="login" formControlName="usuario" class="fadeIn second" name="login" placeholder="usuario">
       <input type="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="ENTRAR">
+      <div id="recuperar">
+        <a [routerLink]="['/recuperar-password']" routerLinkActive="router-link-active">Recuperar contraseña</a>
+      </div>
+      
     </form>
 
     <!-- Remind Passowrd -->

@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { Interceptor } from './infrastructure/api/core/interceptor';
 import { AppConfig } from './app.config';
 import { LoginProvider } from './infrastructure/api/login.provider';
+import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
 
 
 export function cargarConfiguracion(httpClient: HttpClient) {
@@ -31,6 +32,7 @@ export function cargarConfiguracion(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
+    RecuperarPasswordComponent,
   ],
   imports: [
     BrowserModule,
