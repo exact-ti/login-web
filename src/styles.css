@@ -6,3 +6,8 @@ html {
     min-height: 100%;    
     font-family: "Poppins", sans-serif;
   }
+
+.form-control.is-valid, 
+.form-control.is-invalid {
+    background-image: none;    
+}

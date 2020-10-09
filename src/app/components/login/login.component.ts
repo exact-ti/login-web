@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginProvider: LoginProvider, private router: Router, private serializer: UrlSerializer, 
     private notifier: NotifierService) {
-    this.loginUseCase = new LoginUseCase(loginProvider);
+    //this.loginUseCase = new LoginUseCase(loginProvider);
   }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     if(value.usuario=="" || value.password==""){
       this.notifier.notify("warning", "Ingrese todos los datos solicitados");
     }else{
-      this.loginUseCase.login(value.usuario, value.password).subscribe((userDetails: UserDetails) => {
+      this.loginProvider.login(value.usuario, value.password).subscribe((userDetails: UserDetails) => {
         const queryParams = {
           token: userDetails.getToken(),
           refresh_token: userDetails.getRefreshToken()
