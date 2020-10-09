@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form class="mt-5" [formGroup]="resetPasswordForm" (ngSubmit)="onSubmit(resetPasswordForm.value)">
+                <span>¡Solo un paso más! Escribe tu nueva contraseña.</span>
+                <div class="form-group">
+                    <input [ngClass]="{'is-invalid': resetPasswordForm.get('passwordNuevo').invalid && resetPasswordForm.get('passwordNuevo').dirty}" type="password" formControlName="passwordNuevo" class="form-control mt-3" id="correo"
+                        aria-describedby="emailHelp" placeholder="Ingresa tu nueva contraseña">
+                        <small *ngIf="resetPasswordForm.get('passwordNuevo').invalid && resetPasswordForm.get('passwordNuevo').dirty" id="emailHelp" class="form-text text-danger">Ingresa una contraseña</small>
+                    <input type="password" [ngClass]="{'is-invalid': resetPasswordForm.get('passwordNuevo2').invalid && resetPasswordForm.get('passwordNuevo2').dirty}" formControlName="passwordNuevo2" class="form-control mt-3" id="correo"
+                        aria-describedby="emailHelp" placeholder="Vuelve a escribir tu nueva contraseña">
+                        <small *ngIf="resetPasswordForm.get('passwordNuevo2').invalid && resetPasswordForm.get('passwordNuevo2').dirty" id="emailHelp" class="form-text text-danger">Las contraseñas deben ser iguales</small>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="resetPasswordForm.invalid">Cambiar contraseña</button>
+            </form>
+        </div>
+
+
+    </div>
+</div>

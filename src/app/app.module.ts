@@ -15,6 +15,8 @@ import { Interceptor } from './infrastructure/api/core/interceptor';
 import { AppConfig } from './app.config';
 import { LoginProvider } from './infrastructure/api/login.provider';
 import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
+import { VerifyComponent } from './components/verify/verify.component';
+import { ResetPasswordProvider } from './infrastructure/api/reset-password.provider';
 
 
 export function cargarConfiguracion(httpClient: HttpClient) {
@@ -33,6 +35,7 @@ export function cargarConfiguracion(httpClient: HttpClient) {
     AppComponent,
     LoginComponent,
     RecuperarPasswordComponent,
+    VerifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ export function cargarConfiguracion(httpClient: HttpClient) {
       multi: true
     },
     LoginProvider, 
+    ResetPasswordProvider,
   ],
   bootstrap: [AppComponent]
 })
