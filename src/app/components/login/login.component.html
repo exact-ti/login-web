@@ -17,7 +17,7 @@
       <input type="text" id="login" formControlName="usuario" class="fadeIn second" name="login" placeholder="usuario" autocomplete="off">
       <input type="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="ENTRAR">
-      <div id="recuperar">
+      <div id="recuperar" *ngIf="mostrarRecuperacion">
         <a [routerLink]="['/recuperar-password']" routerLinkActive="router-link-active">Recuperar contraseña</a>
       </div>
       

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loginUseCase: LoginUseCase;
+  mostrarRecuperacion = true;
 
   constructor(private loginProvider: LoginProvider, private router: Router, private serializer: UrlSerializer, 
     private notifier: NotifierService) {
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
       'usuario': new FormControl('', Validators.required), 
       'password': new FormControl('', Validators.required)
     });
+    setTimeout(()=>{
+      this.mostrarRecuperacion = !AppConfig.LDAP
+    }, 100);
   }
 
   login(value: any) {
