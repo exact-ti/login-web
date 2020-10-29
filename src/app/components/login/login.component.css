@@ -28,19 +28,20 @@
   
   .wrapper {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column; 
-    justify-content: center;
+    /* justify-content: center; */
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     vertical-align: middle;
     
   }
   
   #formContent {
+    margin: 5rem 0 0 5rem;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #ffffff;
+    background: #ffffff00;
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -71,6 +72,12 @@
   h2.active {
     color: #0d0d0d;
     border-bottom: 2px solid #5fbae9;
+  }
+
+  .logo{
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
   }
   
   

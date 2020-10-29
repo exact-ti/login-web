@@ -1,12 +1,12 @@
 {
-    "mode": "dev",
+    "mode": "test",
 
     "dev": {
         "api": "http://localhost:8891",
         "client_id": "frontendapp",
         "client_secret": "12345",
         "redirect_url": "http://localhost:4200",
-        "ldap": true
+        "ldap": false
     },
 
     "test": {   
@@ -14,6 +14,6 @@
         "client_id": "frontendapp",
         "client_secret": "12345",
         "redirect_url": "http://exact.com.pe:8402",
-        "ldap": true
+        "ldap": false
     }
 }
