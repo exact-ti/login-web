@@ -1,19 +1,21 @@
 {
-    "mode": "test",
+    "mode": "dev",
 
     "dev": {
         "api": "http://localhost:8891",
-        "client_id": "frontendapp",
-        "client_secret": "12345",
         "redirect_url": "http://localhost:4200",
         "ldap": false
     },
 
     "test": {   
         "api": "http://exact.com.pe:8891",
-        "client_id": "frontendapp",
-        "client_secret": "12345",
         "redirect_url": "http://exact.com.pe:8402",
+        "ldap": false
+    },
+
+    "cloud": {   
+        "api": "http://104.46.3.107:8891",
+        "redirect_url": "http://104.46.3.107:8402",
         "ldap": false
     }
 }
